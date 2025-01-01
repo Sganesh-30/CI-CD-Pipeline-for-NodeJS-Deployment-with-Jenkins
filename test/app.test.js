@@ -1,5 +1,4 @@
 const request = require('supertest');
-const express = require('express');
 const app = require('../app');
 
 describe('GET /', () => {
@@ -10,5 +9,7 @@ describe('GET /', () => {
   });
 });
 
-
-
+afterAll((done) => {
+  app.close();  // Close the server after the tests are done
+  done();
+});
