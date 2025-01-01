@@ -32,5 +32,10 @@ pipeline {
                 sh 'npm run test'
             }
         }
+        stage ('Build Docker Image') {
+            steps {
+                sh 'docker build -t sganesh3010/nodecicd:$GIT_COMMIT'
+            }
+        }
     }
 }
