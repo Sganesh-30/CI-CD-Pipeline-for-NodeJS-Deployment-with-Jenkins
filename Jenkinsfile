@@ -21,7 +21,10 @@ pipeline {
         }
         stage ('Installing Dependencies') {
             steps{
-                sh 'npm install'
+                sh '''
+                    npm install
+                    npm install --save-dev jest                    
+                '''
             }
         }
         stage ('Run Unit Test') {
