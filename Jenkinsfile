@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage ('Code Checkout') {
             steps {
-                sh'git branch: 'main', url: 'https://github.com/Sganesh-30/CI-CD-Pipeline-for-NodeJS-Deployment-with-Jenkins.git''
+                git branch: 'main', url: 'https://github.com/Sganesh-30/CI-CD-Pipeline-for-NodeJS-Deployment-with-Jenkins.git'
             }
         }
         stage ('Print Node and NPM Version') {
