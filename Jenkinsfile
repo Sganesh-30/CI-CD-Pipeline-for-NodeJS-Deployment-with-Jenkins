@@ -37,5 +37,16 @@ pipeline {
                 sh 'docker build -t sganesh3010/nodecicd:$GIT_COMMIT -f Dockerfile . '
             }
         }
+        stage ("Trivy Image Scanning") {
+            steps {
+                sh '''
+                    trivy image sganesh3010/nodecicd:$GIT_COMMIT \
+                        --severity LOW,MEDIUM,HIGH \
+                        --exit-code 0 \
+                        --quiet \
+                        --format json -o trivy-image-scanning-results.json
+                '''
+            }
+        }
     }
 }
