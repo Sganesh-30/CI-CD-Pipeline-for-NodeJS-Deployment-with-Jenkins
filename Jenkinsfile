@@ -34,7 +34,7 @@ pipeline {
         }
         stage ('Build Docker Image') {
             steps {
-                sh 'docker build -t sganesh3010/nodecicd:$GIT_COMMIT -f Dockerfile .'
+                sh 'docker build -t sganesh3010/nodecicd:$GIT_COMMIT -f Dockerfile . '
             }
         }
     }
